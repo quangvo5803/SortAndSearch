@@ -47,4 +47,28 @@ public class Algorithm {
             quickSort(array, index, right);
         }
     }
+
+    public int linearSearch(int []a,int key){
+        int size = a.length;
+        for (int i = 0; i < size; i++) {
+            if (a[i] == key) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int binarySearch(int a[],int value,int left,int right){
+        if(left > right){
+            return -1;
+        }
+        int middle = (left + right)/2;
+        if(a[middle] == value){
+            return middle;
+        }else if(a[middle] > value){
+            return binarySearch(a, value, left, middle -1);
+        }else {
+            return binarySearch(a, value, middle +1, right);
+        }
+    }
 }

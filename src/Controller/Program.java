@@ -27,7 +27,7 @@ public class Program extends Menu<String> {
                 break;
             }
             case 2:{
-              
+                search();
                 break;
             }
             case 3:
@@ -67,6 +67,41 @@ public class Program extends Menu<String> {
             }
         }
         sortMenu sm = new sortMenu();
+        sm.run();
+    }
+    //----------------------------------------
+    public void search(){
+        final String [] searchChoice = {"Linear search","Binary search","Exit"};
+        class searchMenu extends Menu<String>{
+            public searchMenu(){
+                super("Search option",searchChoice);
+            }
+
+            @Override 
+            public void execute (int n){
+                v.display("Array: ", array);
+                int search = v.getInt("Enter value want to search: ");
+
+                switch(n){
+                    case 1:{
+                        int p = a.linearSearch(array, search);
+                        System.out.println("Find " + search + " at index: " + p);
+                        break;
+                    }
+                    case 2:{
+                        a.bubbleSort(array);
+                        v.display("Sortted array: ", array);
+                        int p = a.binarySearch(array, search, 0, size -1);
+                        System.out.println("Find " + search + " at index: " + p);
+                        break;
+                    }
+                    case 3:{
+                        
+                    }
+                }
+            }
+        }
+        searchMenu sm = new searchMenu();
         sm.run();
     }
   
