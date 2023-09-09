@@ -45,15 +45,16 @@ public class Program extends Menu<String> {
             
             @Override
             public void execute(int n){
-                v.display("Unsorted array: ", array);
                 switch(n){
                     case 1:{
+                        v.display("Unsorted array: ", array);
                         a.bubbleSort(array);
                         v.display("Sortted array: ", array);
                         System.out.println("");
                         break;
                     }
                     case 2:{
+                        v.display("Unsorted array: ", array);
                         a.quickSort(array, 0, size-1);
                         v.display("Sortted array: ", array);
                         System.out.println("");
@@ -61,7 +62,7 @@ public class Program extends Menu<String> {
                     }
                     case 3:{
                         System.exit(0);
-                        break;
+                        return;
                     }
                 }
             }
@@ -79,16 +80,17 @@ public class Program extends Menu<String> {
 
             @Override 
             public void execute (int n){
-                v.display("Array: ", array);
-                int search = v.getInt("Enter value want to search: ");
-
                 switch(n){
                     case 1:{
+                        v.display("Array: ", array);
+                        int search = v.getInt("Enter value want to search: ");
                         int p = a.linearSearch(array, search);
                         System.out.println("Find " + search + " at index: " + p);
                         break;
                     }
                     case 2:{
+                        v.display("Array: ", array);
+                        int search = v.getInt("Enter value want to search: ");
                         a.bubbleSort(array);
                         v.display("Sortted array: ", array);
                         int p = a.binarySearch(array, search, 0, size -1);
@@ -96,7 +98,8 @@ public class Program extends Menu<String> {
                         break;
                     }
                     case 3:{
-                        
+                        System.exit(0);
+                        return;
                     }
                 }
             }
@@ -104,5 +107,4 @@ public class Program extends Menu<String> {
         searchMenu sm = new searchMenu();
         sm.run();
     }
-  
 }
